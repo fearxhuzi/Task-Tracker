@@ -15,18 +15,39 @@ const reducerFunc = (taskData, action) => {
         ? { ...obj, title: action.payload.title, todo: action.payload.todo }
         : obj,
     );
+  } else {
+    return taskData;
   }
 };
 const TaskTrackerContextReducer = ({ children }) => {
-  const [taskData, dispatchTaskData] = useReducer(reducerFunc, []);
-  const [editState, setEditState] = useState();
+  const [taskData, dispatchTaskData] = useReducer(reducerFunc, [], () => {
+    try {
+      const savedData = localStorage.getItem("SavedData");
+      return savedData ? JSON.parse(savedData) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [editState, setEditState] = useState(() => {
+    try {
+      const savedState = localStorage.getItem("SavedState");
+      return savedState ? JSON.parse(savedState) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("SavedData", JSON.stringify(taskData));
+    localStorage.setItem("SavedState", JSON.stringify(editState));
+  }, [taskData, editState]);
 
   function getValue(title, description) {
     if (title.current.value && description.current.value) {
       const obj = {
         type: "SET_DATA",
         payload: {
-          id: Math.random(),
+          id: crypto.randomUUID(),
           title: title.current.value,
           todo: description.current.value,
           updata: false,

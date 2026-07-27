@@ -23,7 +23,7 @@ const TaskTrackerContextReducer = ({ children }) => {
   const [taskData, dispatchTaskData] = useReducer(reducerFunc, [], () => {
     try {
       const savedData = localStorage.getItem("SavedData");
-      return savedData ? JSON.parse(savedData) : null;
+      return savedData ? JSON.parse(savedData) : [];
     } catch {
       return [];
     }
@@ -31,7 +31,7 @@ const TaskTrackerContextReducer = ({ children }) => {
   const [editState, setEditState] = useState(() => {
     try {
       const savedState = localStorage.getItem("SavedState");
-      return savedState ? JSON.parse(savedState) : [];
+      return savedState ? JSON.parse(savedState) : null;
     } catch {
       return [];
     }

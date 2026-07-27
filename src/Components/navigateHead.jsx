@@ -1,4 +1,3 @@
-import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdMovieEdit, MdAddTask } from "react-icons/md";
 import { TbHomeEdit } from "react-icons/tb";

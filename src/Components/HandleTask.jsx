@@ -31,33 +31,36 @@ function HandleTask() {
           placeholder={`${todo}`}
         />
         <div className="h-20 flex items-center justify-between outline-zinc-200 outline-1 rounded">
-          <button
+          <Link
             onClick={onClickStatus}
+            to="/"
             className="bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm border border-emerald-600 transition-all duration-200 cursor-pointer"
           >
-            <Link to="/">Mark as {status ? "Pending" : "Done"}</Link>
-          </button>
-          <button
+            Mark as {status ? "Pending" : "Done"}
+          </Link>
+
+          <Link
             onClick={onClickEdit}
             className="py-2 cursor-pointer rounded px-2"
+            to="/edit-task"
           >
-            <Link to="/edit-task">
-              <TbEditFilled className=" text-green-600 transition-all ease-in text-2xl  hover:scale-115 active:scale-60 active:text-2xl" />
-            </Link>
-          </button>
-          <button
+            <TbEditFilled className=" text-green-600 transition-all ease-in text-2xl  hover:scale-115 active:scale-60 active:text-2xl" />
+          </Link>
+
+          <Link
+            to="/"
             onClick={onClickDel}
             className=" py-2 text-red-500 transition-all ease-in text-2xl  hover:scale-115 active:scale-60 active:text-2xl cursor-pointer px-2"
           >
-            <Link to="/">
-              <RiDeleteBin2Fill />
-            </Link>
-          </button>
-          <button className="py-2 text-blue-500 transition-all ease-in text-2xl  hover:scale-115 active:scale-60 active:text-2xl cursor-pointer">
-            <Link to="/">
-              <TbArrowBackUp />
-            </Link>
-          </button>
+            <RiDeleteBin2Fill />
+          </Link>
+
+          <Link
+            to="/"
+            className="py-2 text-blue-500 transition-all ease-in text-2xl  hover:scale-115 active:scale-60 active:text-2xl cursor-pointer"
+          >
+            <TbArrowBackUp />
+          </Link>
         </div>
       </div>
     </div>

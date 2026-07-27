@@ -9,14 +9,15 @@ function AddTask() {
   return (
     <>
       <div className="max-sm:p-2 m-auto w-[400px] max-sm:w-screen">
-        <h2 className="text-xs text-gray-500">Title</h2>
+        <h2 className="mb-5 font-bold text-lg">Add Task</h2>
+        <h3 className="text-xs text-gray-500">Title</h3>
         <input
           ref={title}
           className="mt-2 ml-2 w-80 text-sm px-1 py-1 outline-zinc-200 outline-1 rounded-md focus:outline-1 focus:outline-blue-500 pl-2"
           type="text"
           placeholder="e.g. Finish Homework"
         />
-        <h2 className="text-xs text-gray-500">Description</h2>
+        <h3 className="text-xs text-gray-500">Description</h3>
         <textarea
           ref={description}
           className="mt-2 w-80 h-18 ml-2 text-sm px-1 py-1 outline-zinc-200 outline-1 rounded-md focus:outline-1 focus:outline-blue-500 pl-2"
@@ -27,13 +28,13 @@ function AddTask() {
           <button
             type="submit"
             onClick={() => getValue(title, description)}
-            className=" text-white font-bold cursor-pointer bg-blue-500 px-3 py-2 rounded-md"
+            className=" text-white transition-all ease-in font-bold cursor-pointer active:-translate-y-0.5 hover:bg-blue-400 bg-blue-500 px-3 py-2 rounded-md"
           >
-            Submit
+            Add
           </button>
           <Link
             to="/"
-            className="text-sm underline hover:bg-blue-200 px-3 py-2 rounded-md block text-center "
+            className="text-sm underline transition-all ease-in hover:bg-blue-200 px-3 py-2 rounded-md block text-center "
           >
             Cancel
           </Link>

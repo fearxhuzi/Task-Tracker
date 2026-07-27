@@ -1,7 +1,9 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { TaskTrackerContext } from "../store/AllFunction";
-
+import { RiDeleteBin2Fill } from "react-icons/ri";
+import { TbEditFilled } from "react-icons/tb";
+import { TbArrowBackUp } from "react-icons/tb";
 function HandleTask() {
   const [changeReadOnly, setChangeReadOnly] = useState(false);
   const { editState, onClickDel, onClickStatus } =
@@ -31,24 +33,30 @@ function HandleTask() {
         <div className="h-20 flex items-center justify-between outline-zinc-200 outline-1 rounded">
           <button
             onClick={onClickStatus}
-            className="hover:bg-blue-200 py-2 cursor-pointer rounded px-2"
+            className="bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm border border-emerald-600 transition-all duration-200 cursor-pointer"
           >
             <Link to="/">Mark as {status ? "Pending" : "Done"}</Link>
           </button>
           <button
             onClick={onClickEdit}
-            className="hover:bg-blue-200 py-2 cursor-pointer rounded px-2"
+            className="py-2 cursor-pointer rounded px-2"
           >
-            <Link to="/edit-task">Edit</Link>
+            <Link to="/edit-task">
+              <TbEditFilled className=" text-green-600 transition-all ease-in text-2xl  hover:scale-115 active:scale-60 active:text-2xl" />
+            </Link>
           </button>
           <button
             onClick={onClickDel}
-            className="hover:bg-red-300 py-2 bg-red-200 text-red-400 font-bold cursor-pointer rounded px-2"
+            className=" py-2 text-red-500 transition-all ease-in text-2xl  hover:scale-115 active:scale-60 active:text-2xl cursor-pointer px-2"
           >
-            <Link to="/">Delete</Link>
+            <Link to="/">
+              <RiDeleteBin2Fill />
+            </Link>
           </button>
-          <button className="hover:bg-blue-200 py-2 cursor-pointer rounded px-2">
-            <Link to="/">Back</Link>
+          <button className="py-2 text-blue-500 transition-all ease-in text-2xl  hover:scale-115 active:scale-60 active:text-2xl cursor-pointer">
+            <Link to="/">
+              <TbArrowBackUp />
+            </Link>
           </button>
         </div>
       </div>

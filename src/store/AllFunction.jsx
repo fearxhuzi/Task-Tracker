@@ -23,7 +23,7 @@ const TaskTrackerContextReducer = ({ children }) => {
   const [taskData, dispatchTaskData] = useReducer(reducerFunc, [], () => {
     try {
       const savedData = localStorage.getItem("SavedData");
-      return savedData ? JSON.parse(savedData) : [];
+      return savedData ? JSON.parse(savedData) : null;
     } catch {
       return [];
     }

@@ -30,13 +30,14 @@ function EditTask() {
           placeholder="Option Details....."
         />
         <div className="mt-4 flex items-center gap-4">
-          <button
+          <Link
             onClick={() => onClickEditTask(title, description, id)}
-            type="submit"
             className=" text-white font-bold cursor-pointer bg-green-600 px-3 py-2 rounded-md"
+            to="/"
           >
-            <Link to="/">Edit</Link>
-          </button>
+            Edit
+          </Link>
+
           <Link
             to="/"
             className="text-sm underline hover:bg-blue-200 px-3 py-2 rounded-md block text-center "

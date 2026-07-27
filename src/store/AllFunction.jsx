@@ -80,16 +80,6 @@ const TaskTrackerContextReducer = ({ children }) => {
     };
     dispatchTaskData(obj);
   }
-
-  // useEffect(() => {
-  //   fetch("https://dummyjson.com/todos")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data.todos);
-  //     })
-  //     .catch((err) => console.log("error fetching data: ", err));
-  // }, []);
-
   return (
     <TaskTrackerContext.Provider
       value={{
